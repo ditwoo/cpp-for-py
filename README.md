@@ -3,13 +3,13 @@
 
 ## 0. Preparations
 
-Please create env where you can practice. If you have Anaconda you can easily clone base env:
+Please create python environment where you can practice. If you have Anaconda you can clone base env:
 
 ```bash
 conda create --name cpp_packages --clone base
 ```
 
-Do not forgot to activate environment:
+Do not forget to activate recentry created environment:
 
 ```
 source activate cpp_packages
