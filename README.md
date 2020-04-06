@@ -21,3 +21,13 @@ source activate cpp_packages
 python setup.py build_ext --inplace
 ```
 
+## 2. Runing some basic tests
+
+```
+python check.py
+```
+
+## Links
+
+[Using C++ in Cython](https://cython.readthedocs.io/en/latest/src/userguide/wrapping_CPlusPlus.html#compilation-and-importing)
+
