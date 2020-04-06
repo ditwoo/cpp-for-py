@@ -1,5 +1,5 @@
 
-# C++ bindings in Python with Cython
+# C++ -> Cython -> Python module
 
 ## 0. Preparations
 
