@@ -15,3 +15,16 @@ print(f"Does palindrome detected in '{str_to_check}' - {string_tools.py_is_palin
 
 str_to_check = "abbab"
 print(f"Does palindrome detected in '{str_to_check}' - {string_tools.py_is_palindrome(str_to_check)}")
+
+print()
+
+trie = string_tools.PyTrie(["a", "ab", "abc"])
+
+prefix_to_check = "ab"
+print(f"Does '{prefix_to_check}' in trie ?\n {prefix_to_check in trie}")
+
+prefix_to_check = "c"
+print(f"Does '{prefix_to_check}' in trie ?\n {prefix_to_check in trie}")
+
+prefix_to_check = "cccc"
+print(f"Does '{prefix_to_check}' in trie ?\n {prefix_to_check in trie}")
