@@ -183,6 +183,48 @@ PyTrie_add(PyTrie *self, PyObject *args) {
 
 
 static PyObject *
+PyTrie_update(PyTrie *self, PyObject *args) {
+    PyObject *list_arg, *list_iter, *item;
+
+    if (!PyArg_ParseTuple(args, "O", &list_arg)) {
+        return nullptr;
+    }
+
+    list_iter = PyObject_GetIter(list_arg);
+    if (!list_iter) {
+        PyErr_SetString(PyExc_TypeError, "Required iterable object!");
+        return nullptr;
+    }
+
+    while (true) {
+        item = PyIter_Next(list_iter);
+        
+        // end of iterator
+        if (!item) 
+            break;
+
+        // check for string
+        if (!PyUnicode_Check(item)) {
+            std::string err_msg(item->ob_type->tp_name);
+            err_msg = "Elements of should be only strings but received '" + err_msg + "' !";
+            PyErr_SetString(PyExc_ValueError, err_msg.c_str());
+            return nullptr;
+        }
+
+        PyObject *enc_str = PyUnicode_AsEncodedString(item, "utf-8", "~E~");
+        const char *bytes = PyBytes_AS_STRING(enc_str);
+        std::string text(bytes);
+
+        str_tools::add(self->trie_node, text);
+
+        Py_XDECREF(item);
+    }
+
+    return Py_BuildValue(""); /* return nothing */
+};
+
+
+static PyObject *
 PyTrie_contains(PyTrie *self, PyObject *args) {
     char *ctext;
     if (!PyArg_ParseTuple(args, "s", &ctext)) {
@@ -197,6 +239,7 @@ PyTrie_contains(PyTrie *self, PyObject *args) {
 static PyMethodDef PyTrie_methods[] = {
     {"add", (PyCFunction)PyTrie_add, METH_VARARGS, "Add string to trie."},
     {"__contains__", (PyCFunction)PyTrie_contains, METH_VARARGS, "Check if passed preffix contains in Trie"},
+    {"update", (PyCFunction)PyTrie_update, METH_VARARGS, "Add list of strings to Trie."},
     {NULL, NULL, 0, NULL}
 };
 

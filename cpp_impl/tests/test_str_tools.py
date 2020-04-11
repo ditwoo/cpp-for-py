@@ -35,6 +35,33 @@ def test_pytrie_properties():
 
     assert "__contains__" in module_properties
     assert "add" in module_properties
+    assert "update" in module_properties
+
+
+def test_pytrie_update():
+    trie = str_tools.PyTrie("a")
+    trie.update(["ab", "abc"])
+
+    to_check = "ab"
+
+    assert trie.__contains__(to_check)
+
+
+def test_pytrie_update_with_wrong_type():
+    trie = str_tools.PyTrie("a")
+
+    with pytest.raises(ValueError):
+        trie.update(["ab", "abc", 12345])
+
+
+# def test_pytrie_on_correct_preffix_with_in_operator():
+#     trie = str_tools.PyTrie("a")
+#     trie.add("ab")
+#     trie.add("abc")
+
+#     to_check = "ab"
+
+#     assert to_check in trie
 
 
 def test_pytrie_on_correct_preffix():
@@ -55,42 +82,3 @@ def test_pytrie_on_wrong_preffix():
     to_check = "bc"
 
     assert not trie.__contains__(to_check)
-
-
-# def atributes(module):
-#     print()
-#     print(f"'{module.__name__}' atributes:")
-#     for item in dir(module):
-#         print(" •", item)
-
-# def test_is_palindrome():
-#     if hasattr(str_tools, "is_palindrome"):
-#         print()
-
-#         palindrome_str = "abcdcba"
-#         print(f"Is palindrome '{palindrome_str}' -", str_tools.is_palindrome(palindrome_str))
-
-#         wrong_str = "abcd"
-#         print(f"Is palindrome '{wrong_str}' -", str_tools.is_palindrome(wrong_str))
-
-
-# if __name__ == "__main__":
-#     print("*" * 100)
-#     atributes(str_tools)
-#     test_is_palindrome()
-
-#     print("*" * 100)
-#     atributes(str_tools.PyTrie)
-
-#     t = str_tools.PyTrie("a")
-#     t.add("ab")
-#     t.add("abc")
-
-#     lookup_preffix = "ab"
-#     print(t.__contains__(lookup_preffix))
-#     print(lookup_preffix in t)
-
-#     # print(trie.__contains__(t, "a"))
-
-#         # num = 123
-#         # print(str_tools.is_palindrome(num))
