@@ -7,8 +7,8 @@ extensions = [
     Extension(
         name="_string_tools_cython",
         sources=[
-            "string_tools/cpp/cy_str_tools.pyx",
-            "string_tools/cpp/str_tools.cpp"
+            "str_tools/cpp/cy_str_tools.pyx",
+            "str_tools/cpp/str_tools.cpp"
         ],
         extra_compile_args=["-std=c++11", "-pthread", "-O3"],
         language="c++",
@@ -16,7 +16,8 @@ extensions = [
 ]
 
 setup(
-    name="string_tools",
+    name="str_tools",
+    version="1.1.0",
     packages=find_packages(),
     ext_modules=cythonize(extensions, annotate=True),
 )
