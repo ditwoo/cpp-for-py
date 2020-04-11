@@ -11,13 +11,13 @@ If you have Anaconda you can clone base env:
 conda create --name cpp_packages --clone base
 ```
 
-Othervise please check [python docs about virtual envs](https://docs.python.org/3/library/venv.html).
+Otherwise please check [python docs about virtual envs](https://docs.python.org/3/library/venv.html).
 
 
 Soo ... if you used Anaconda please do not forget to activate recentry created environment, <br>
-you can do this with following command:
+you can do this with the following command:
 
-```
+```bash
 source activate cpp_packages
 ```
 
@@ -31,10 +31,10 @@ python setup.py build_ext --inplace
 ```
 
 Next good practice is to test your code. <br>
-The most pythonic way to do this is to write tests using PyTest or something simmilar. <br>
-To run test you just need:
+The most pythonic way to do this is to write tests using PyTest or something similar. <br>
+To run tests you just need:
 
-```
+```bash
 python -m pytest
 ```
 
