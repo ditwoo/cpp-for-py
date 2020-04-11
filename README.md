@@ -45,3 +45,4 @@ This command will check `test` (or `tests`) directory and execute all files with
 * [Using C++ in Cython](https://cython.readthedocs.io/en/latest/src/userguide/wrapping_CPlusPlus.html#compilation-and-importing)
 * [Python C API: Defining New Types](https://docs.python.org/3.3/extending/newtypes.html?highlight=pytypeobject)
 * [Python C API: Type Objects](https://docs.python.org/3/c-api/typeobj.html)
+* [How to Package Cython and Cython-wrapped C++ Code within a python module](https://github.com/AshleySetter/HowToPackageCythonAndCppFuncs)
