@@ -14,7 +14,7 @@ conda create --name cpp_packages --clone base
 Otherwise please check [python docs about virtual envs](https://docs.python.org/3/library/venv.html).
 
 
-Soo ... if you used Anaconda please do not forget to activate recentry created environment, <br>
+Soo ... if you are conda user (like me) please do not forget to activate recentry created environment, <br>
 you can do this with the following command:
 
 ```bash
